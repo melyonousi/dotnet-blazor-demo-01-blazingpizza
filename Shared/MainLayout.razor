@@ -1,0 +1,16 @@
+﻿@inherits LayoutComponentBase
+
+<NavBar />
+
+<div class="py-16">
+    @Body
+</div>
+
+<footer class="text-center py-8">
+    @* @new MarkdownString(TrademarkMessage) *@
+    @TrademarkMessage
+</footer>
+
+@code {
+    public string TrademarkMessage { get; set; } = $"All content is &copy; Blazing Pizzas {@DateTime.UtcNow.Year}";
+}

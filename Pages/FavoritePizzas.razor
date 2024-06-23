@@ -1,0 +1,24 @@
+﻿@* @page "/FavoritePizzas/{favorite}" *@
+@* @page "/FavoritePizzas/{favorite?}" *@
+@page "/FavoritePizza/{*favorite}"
+@page "/FavoritePizza/{FavoriteSize:int}"
+@inject NavigationManager _NavigationManager
+
+<div class="flex flex-column gap-3">
+	<h1>Choose a Pizza</h1>
+	<p>Your favorite pizza is: @Favorite</p>
+	@* <p>Your favorite pizza is: @FavoriteSize</p> *@
+</div>
+
+@code {
+	[Parameter]
+	public string Favorite { get; set; }
+
+	[Parameter]
+	public int FavoriteSize { get; set; }
+
+	protected override void OnInitialized()
+	{
+		Favorite ??= "Fiorentina";
+	}
+}
